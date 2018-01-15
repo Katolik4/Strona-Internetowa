@@ -1,0 +1,73 @@
+{% extends 'esp/base.html' %} {% block tytul %} podstrona {% endblock %} {% block body %} {% for gpio in urzadzenie.gpio_set.all %}
+<div class="col-sm-4">
+    <div class="container-fluid" id="gpio">
+        <h1>{{gpio.opis}}</h1>
+        <div class="well"> <span class="glyphicon glyphicon-retweet"></span>{{gpio.stan}}</div>
+        <div class="container-fluid przyciski">
+            <div class="col-sm-4 przyciski">
+                <a href="#" class="btn btn-success btn-block"> on/off </a>
+            </div>
+            <div class="col-sm-4 przyciski">
+                <a href="{% url 'esp:gpio-update' urzadzenie.pk gpio.pk %}" class="btn btn-info btn-block">info</a>
+            </div>
+            <div class="col-sm-4 przyciski">
+                <a href="#" class="btn btn-danger btn-block">usun</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+<div class="col-sm-4">
+    <div class="container-fluid" id="dodaj">
+
+        <a href="{% url 'esp:gpio-add' urzadzenie.pk %}" class="btn btn-success btn-block">
+            <span class="glyphicon glyphicon-plus"></span> Dodaj wyjscie </a>
+        <a href="{% url 'esp:urzadzenie-update' urzadzenie.pk %}" class="btn btn-info btn-block">
+            <span class="glyphicon glyphicon-retweet"></span> Update </a>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="col-sm-4">
+
+    <h1>Sidebar layout</h1>
+    <div class="well"> alhnfdhofkdnh</div>
+
+</div>
+<div class="col-sm-4">
+
+    <h1>Sidebar layout</h1>
+    <div class="well"> alhnfdhofkd</div>
+
+</div>
+<div class="col-sm-4">
+
+    <h1>Sidebar layout</h1>
+    <div class="well"> alhnfdhofkd</div>
+
+</div>
+<div class="col-sm-4">
+
+    <h1>Sidebar layout</h1>
+    <div class="well"> alhnfdhofkdn</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

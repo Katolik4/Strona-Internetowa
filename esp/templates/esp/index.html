@@ -1,0 +1,56 @@
+{% extends 'esp/base.html' %} {% block tytul %} Gliwna {% endblock %} {% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">First</div>
+        <div class="col-md-8">
+            <div class="container-fluid">
+                <p>costakaldnsaglkngalskdgnasldkgnasdkgnasdlfhndfhlkanfh</p>
+                <div class="well">Basic Well</div>
+                <div class="alert alert-info"><a href="#" class="close" data-dismiss="alert" aria-label="close"><span class="glyphicon glyphicon-retweet"></span></a>Alert</div>
+            </div>
+        </div>
+        <div class="col-md-2">prawo</div>
+    </div>
+
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        {% for urzadzenie in all_urzadzenia %}
+        <div class="col-sm-4">
+
+            <h1>{{urzadzenie.Nazwa}}</h1>
+            <div class="well"> <span class="glyphicon glyphicon-retweet"></span>alhnfdhofkdnhasdlalhnfdhofkdnhasdl</div>
+            <div class="container-fluid ">
+                <div class="col-sm-4 przyciski">
+                    <a href="#" class="btn btn-success btn-block"> on/off </a>
+                </div>
+                <div class="col-sm-4 przyciski">
+                    <a href="{% url 'esp:detail' urzadzenie.id %}" class="btn btn-info btn-block"> <span class="glyphicon glyphicon-retweet"></span> info
+                    </a>
+                </div>
+                <div class="col-sm-4 przyciski">
+                    <a href="{% url 'esp:urzadzenie-delete' urzadzenie.id %}" class="btn btn-danger btn-block"> usun </a>
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+<ul>
+    {% for urzadzenie in all_urzadzenia %}
+    <li>
+        <div>
+            <a href="{% url 'esp:detail' urzadzenie.id %}">{{urzadzenie.Nazwa}}</a>
+            <a href="{% url 'esp:urzadzenie-update' urzadzenie.id %}">
+                <span class="glyphicon glyphicon-retweet"></span> update
+            </a>
+        </div>
+    </li>
+    {% endfor %}
+
+</ul>
+{% endblock %}

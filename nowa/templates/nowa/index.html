@@ -1,0 +1,15 @@
+{% extends 'nowa/base.html' %}
+{%  block tytul %} Gliwna {% endblock %}
+
+{%  block body %}
+    {% if wszystkie_albumy %}
+        <h1>Wszystkie albumy</h1>
+        <ul>
+            {% for album in wszystkie_albumy %}
+            <li><a href="{% url 'nowa:detail' album.id %}">{{album.album_title}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>Brak pasujacych rekordow</h2>
+    {% endif %}
+{% endblock %}

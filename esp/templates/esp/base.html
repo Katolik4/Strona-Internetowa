@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> {% load staticfiles %}
+
+    <title>{% block tutul %}{% endblock %}</title>
+
+    <meta name="viewport" content="width-device-width, inital-scale-1">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'esp/sidebar.css' %}">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="btn btn-succes" id="menu-toggle">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+            <a href="{% url 'esp:index' %}" class="navbar-brand">PIOTR</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{% url 'esp:index' %}">
+                        <span class="glyphicon glyphicon-cd"></span> Urzadzenia
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'esp:urzadzenie-add' %}">
+                        <span class="glyphicon glyphicon-plus"></span> Add Urz
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin">
+                        <span class="glyphicon glyphicon-retweet"> </span> admin
+                    </a>
+                </li>
+                <li><a href="#">ESP</a></li>
+                <li><a href="#">ALARMY</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body>
+
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li><a href="#">Acc</a></li>
+                <li><a href="#">SETTings</a></li>
+                <li><a href="#">logout</a></li>
+            </ul>
+
+        </div>
+        <div id="page-content-wraper">
+            <div class="container-fluid">
+                <div class="row">
+
+                    {% block body %} {% endblock %}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("menuDisplayed");
+        });
+
+    </script>
+
+</body>
+
+</html>
