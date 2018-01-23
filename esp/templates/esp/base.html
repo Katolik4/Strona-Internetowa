@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"> {% load staticfiles %}
 
-    <title>{% block tutul %}{% endblock %}</title>
+    <title>{% block tytul %} {% endblock %}</title>
 
     <meta name="viewport" content="width-device-width, inital-scale-1">
 
@@ -61,7 +61,7 @@
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><a href="#">Acc</a></li>
+                <li><a href="{% url 'esp:user-register' %}">Dodaj użytkownika</a></li>
                 <li><a href="#">SETTings</a></li>
                 <li><a href="#">logout</a></li>
             </ul>

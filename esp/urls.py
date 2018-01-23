@@ -11,9 +11,15 @@ urlpatterns = [
     #/esp/urzadzenie/add
     re_path(r'urzadzenie/add/$', views.UrzadrzenieCreate.as_view(), name='urzadzenie-add'),
     re_path(r'urzadzenie/(?P<pk>[0-9]+)/$', views.UrzadrzenieUpdate.as_view(), name='urzadzenie-update'),
-    re_path(r'(?P<pk_urzadzenie>[0-9]+)/gpio/(?P<pk>[0-9]+)/$', views.GpioUpdate.as_view(), name='gpio-update'),
-    re_path(r'(?P<pk>[0-9]+)/gpio/add/$', views.GpioCreate.as_view(), name='gpio-add'),
     re_path(r'urzadzenie/(?P<pk>[0-9]+)/delete/$', views.UrzadrzenieDelete.as_view(), name='urzadzenie-delete'),
+
+    re_path(r'(?P<pk_urzadzenie>[0-9]+)/gpio/add/$', views.GpioCreate.as_view(), name='gpio-add'),
+    re_path(r'(?P<pk_urzadzenie>[0-9]+)/gpio/(?P<pk>[0-9]+)/$', views.GpioUpdate.as_view(), name='gpio-update'),
+    re_path(r'(?P<pk_urzadzenie>[0-9]+)/gpio/(?P<pk>[0-9]+)/delete/$', views.GpioDelete.as_view(), name='gpio-delete'),
+
+
+    re_path(r'register/$', views.UserFormView.as_view(), name='user-register'),
+
     # /nowa/<album_id>/favorite
     #re_path(r'^(?P<album_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
 ]

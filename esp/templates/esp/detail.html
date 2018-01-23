@@ -1,4 +1,12 @@
-{% extends 'esp/base.html' %} {% block tytul %} podstrona {% endblock %} {% block body %} {% for gpio in urzadzenie.gpio_set.all %}
+{% extends 'esp/base.html' %} 
+
+{% block tytul %} 
+Urzadzenie {{urzadzenie.pk}} 
+{% endblock %} 
+
+{% block body %} 
+
+{% for gpio in urzadzenie.gpio_set.all %}
 <div class="col-sm-4">
     <div class="container-fluid" id="gpio">
         <h1>{{gpio.opis}}</h1>
@@ -11,7 +19,7 @@
                 <a href="{% url 'esp:gpio-update' urzadzenie.pk gpio.pk %}" class="btn btn-info btn-block">info</a>
             </div>
             <div class="col-sm-4 przyciski">
-                <a href="#" class="btn btn-danger btn-block">usun</a>
+                <a href="{% url 'esp:gpio-delete' urzadzenie.pk gpio.pk %}" class="btn btn-danger btn-block">usun</a>
             </div>
         </div>
     </div>
@@ -31,43 +39,6 @@
 
 
 </div>
-
-
-</div>
-
-
-<div class="col-sm-4">
-
-    <h1>Sidebar layout</h1>
-    <div class="well"> alhnfdhofkdnh</div>
-
-</div>
-<div class="col-sm-4">
-
-    <h1>Sidebar layout</h1>
-    <div class="well"> alhnfdhofkd</div>
-
-</div>
-<div class="col-sm-4">
-
-    <h1>Sidebar layout</h1>
-    <div class="well"> alhnfdhofkd</div>
-
-</div>
-<div class="col-sm-4">
-
-    <h1>Sidebar layout</h1>
-    <div class="well"> alhnfdhofkdn</div>
-
-</div>
-
-
-
-
-
-
-
-
 
 
 {% endblock %}

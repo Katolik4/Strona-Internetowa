@@ -21,6 +21,6 @@ class Gpio(models.Model):
 
 
     def get_absolute_url(self):
-        return  reverse('esp:detail', kwargs={'pk': self.urzadzenie.pk})
+        return  reverse(('esp:gpio-update'), kwargs={'pk_urzadzenie': self.urzadzenie.pk, 'pk': self.pk})
     def __str__(self):
-        return self.opis +' - '+self.urzadzenie.Nazwa
+        return self.opis +' - Urzadzenie: '+self.urzadzenie.Nazwa
