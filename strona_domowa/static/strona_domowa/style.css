@@ -1,0 +1,62 @@
+body{
+    background-image: url('background.jpg');
+    background-position: right top;
+    background-attachment: fixed;
+
+}
+
+#logo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    height: 100%;
+    
+
+}
+#logo1{
+
+}
+
+.center{
+    text-align: center;
+}
+header {
+	background-color: #666666;
+    height: 120px;
+
+}
+
+.okno{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #333333;
+    opacity: 0.85;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px
+
+}
+
+.tytul_okno{
+    font-family: 'Oswald', sans-serif;
+    background-color: #333333;
+    font-size: 30px;
+    opacity: 0.6;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px
+
+}
+
+.tytul {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    
+}
+   

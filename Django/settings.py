@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['192.168.0.12', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'nowa.apps.NowaConfig',
     'esp.apps.EspConfig',
+    'strona_domowa.apps.StronaDomowaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
