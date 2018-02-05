@@ -21,15 +21,17 @@
 
 
 
-        <div class="col-sm-10 col-md-8">
+        <div class="col-sm-10 col-md-8 ">
             {% for projekt in all_projekty %}
-
+            
+            <a class= "none" href="{% url 'strona_domowa:detail' projekt.pk %}" >
             <div class="tytul_okno">
                 {{projekt.Tytul}}
             </div>
             <div class='okno'>
                 {{projekt.podtytul}}
             </div>
+            </a>
 
             {% endfor %}
 
@@ -74,25 +76,5 @@ In sit amet finibus dui. Praesent neque purus, malesuada eu enim quis, iaculis e
 {% endblock %}
 
 {% block js %}
-<script>
-    $(document).ready(function() {
-        $('#nav').affix({
-            offset: {
-                top: $('header').height()
-            }
-        });
-        $('#sidebar-wrapper').affix({
-            offset: {
-                top: $('header').height()
-            }
-        });
-        $('#page-content-wrapper').affix({
-            offset: {
-                top: $('header').height()
-            }
-        });
-
-    });
-</script>
 
 {% endblock %}

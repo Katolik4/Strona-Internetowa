@@ -8,76 +8,84 @@
 
     <meta name="viewport" content="width-device-width, inital-scale-1">
     
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{% static 'strona_domowa/sidebar.css' %}">
      <link rel="stylesheet" type="text/css" href="{% static 'strona_domowa/style.css' %}">
      <link rel="stylesheet" type="text/css" href="{% static 'strona_domowa/nav.css' %}">
     
-    
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
-   
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 
 
 <header class="masthead">
    <div class = "container-fluid center" id="logo" >
-       <a href="" >PIOTR POLAKOWSKI</a>
+       <a class="none"href="{% url 'strona_domowa:index' %}" >PIOTR POLAKOWSKI</a>
    </div>    
     
 </header>
-   
   
-<nav class="navbar navbar-default navbar-static navbar-inverse" id="nav">
-    <div class="container-fluid">
-        <div class="navbar-header ">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-
-
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-center">
-                <li>
-                    <a href="#" class="btn btn-succes" id="menu-toggle">
+  
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light" id="nav" data-toggle="sticky-onscroll">
+    ,
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Hidden brand</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="btn btn-succes" id="menu-toggle">
                     <span class="glyphicon glyphicon-plus"></span>
                     </a>
-                    
-                </li>
-                <li>
-                    <a href="">
-                        <span class="glyphicon glyphicon-plus"></span> Add Urz
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin">
-                        <span class="glyphicon glyphicon-retweet"> </span> admin
-                    </a>
-                </li>
-                <li><a href="#">ESP</a></li>
-                <li><a href="#">ALARMY</a></li>
 
-            </ul>
-        </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'strona_domowa:projekty' %}">
+                        <span class="glyphicon glyphicon-plus"></span> Projekty
+                    </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'strona_domowa:o_mnie' %}">
+                        <span class="glyphicon glyphicon-retweet"> </span> O mnie
+                    </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'esp:index' %}">ESP</a></li>
+            <li class="nav-item"><a class="nav-link" href="/admin">ADMIN</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'strona_domowa:index' %}">
+                        <span class="glyphicon glyphicon-log-in"></span> Logowanie
+                    </a>
+            </li>
+        </ul>
     </div>
+    
 
+    
 </nav>
+   
+  
+
 
 
 <body>
 
     <div id="wrapper">
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper" data-toggle="sticky-onscroll">
             <ul class="sidebar-nav">
-                    {% block nav %} {% endblock %}
+                {% block nav %} {% endblock %}
 
             </ul>
 
@@ -94,14 +102,58 @@
         </div>
     </div>
 
+
+
+    {% block js %} {% endblock%}
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("menuDisplayed");
         });
     </script>
-    {% block js %} {% endblock%}
 
-    </body>
+
+    <script>
+        $(document).ready(function() {
+            // Custom 
+            var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
+                var stickyHeight = sticky.outerHeight();
+                var stickyTop = stickyWrapper.offset().top;
+                if (scrollElement.scrollTop() >= stickyTop) {
+                    stickyWrapper.height(stickyHeight);
+                    sticky.addClass("is-sticky");
+                } else {
+                    sticky.removeClass("is-sticky");
+                    stickyWrapper.height('auto');
+                }
+            };
+
+            // Find all data-toggle="sticky-onscroll" elements
+            $('[data-toggle="sticky-onscroll"]').each(function() {
+                var sticky = $(this);
+                var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+                sticky.before(stickyWrapper);
+                sticky.addClass('sticky');
+
+                // Scroll & resize events
+                $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
+                    stickyToggle(sticky, stickyWrapper, $(this));
+                });
+
+                // On page load
+                stickyToggle(sticky, stickyWrapper, $(window));
+            });
+        });
+    </script>
+</body>
 
 </html>

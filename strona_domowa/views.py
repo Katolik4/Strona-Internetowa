@@ -12,12 +12,11 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import View
 
-class IndexView(generic.ListView):
+class IndexView(generic.View):
     template_name = 'strona_domowa/index.html'
-    context_object_name = "all_projekty"
 
-    def get_queryset(self):
-        return Projekt.objects.all()
+    def get(self, request):
+        return render(request, self.template_name)
 
 class ProjektyView(generic.ListView):
     template_name = 'strona_domowa/projekty.html'

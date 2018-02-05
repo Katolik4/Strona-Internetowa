@@ -21,9 +21,7 @@ body{
 
 }
 
-.center{
-    text-align: center;
-}
+
 header {
 	background-color: #666666;
     height: 120px;
@@ -59,4 +57,28 @@ header {
     padding-bottom: 10px;
     
 }
+
+a.none:hover{
+    text-decoration: none;
+}
    
+#index1{
+    
+    font-size: 60px;
+    background-color: #333333;
+    opacity: 0.85;
+    padding: 10px;
+    border-radius: 10px;
+        
+}
+
+#index2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px
+    
+}
