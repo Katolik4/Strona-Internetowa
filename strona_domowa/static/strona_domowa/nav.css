@@ -1,0 +1,48 @@
+nav{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+
+
+
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.navbar-nav li a{
+        
+        
+}
+
+
+.navbar-nav li:hover{
+   background-color: blue;
+}
+
+
+.sticky.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+#sidebar-wrapper {
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    
+}
+#sidebar-wrapper.is-sticky{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 100%;
+    top: 60px;
+}
+

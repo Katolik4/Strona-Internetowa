@@ -9,6 +9,9 @@
     <meta name="viewport" content="width-device-width, inital-scale-1">
     
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
 
     <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
 
@@ -28,54 +31,51 @@
 </header>
   
   
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light" id="nav" data-toggle="sticky-onscroll">
-    ,
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Hidden brand</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="btn btn-succes" id="menu-toggle">
-                    <span class="glyphicon glyphicon-plus"></span>
-                    </a>
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" id="nav" data-toggle="sticky-onscroll">
 
-            </li>
+    <a class="navbar-brand" href="#" id="menu-toggle">
+        <span class="far fa-arrow-alt-circle-right fa-2x"></span>
+    </a>
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'strona_domowa:projekty' %}">
-                        <span class="glyphicon glyphicon-plus"></span> Projekty
+                        <span class="fas fa-sitemap"></span> Projekty
                     </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'strona_domowa:o_mnie' %}">
-                        <span class="glyphicon glyphicon-retweet"> </span> O mnie
+                        <span class="far fa-user-circle"> </span> O mnie
                     </a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'esp:index' %}">ESP</a></li>
-            <li class="nav-item"><a class="nav-link" href="/admin">ADMIN</a></li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'strona_domowa:index' %}">
-                        <span class="glyphicon glyphicon-log-in"></span> Logowanie
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <span class="fas fa-sign-in-alt"></span> Logowanie
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'strona_domowa:index' %}">
+                        <span class="fas fa-sign-in-alt"></span> Logowanie
                     </a>
+                    <a class="dropdown-item" href="{% url 'esp:index' %}">
+                        <span class="fas fa-microchip"></span> ESP
+                    </a>
+                    <a class="dropdown-item" href="{% url 'admin:index' %}">
+                        <span class="fas fa-chess-rook"></span> ADMIN
+                    </a>
+                </div>
             </li>
         </ul>
     </div>
-    
 
-    
 </nav>
-   
   
 
 
@@ -83,24 +83,35 @@
 <body>
 
     <div id="wrapper">
-        <div id="sidebar-wrapper" data-toggle="sticky-onscroll">
+        <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 {% block nav %} {% endblock %}
 
             </ul>
 
         </div>
+
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-sm-1 col-md-2"></div>
+                    <div class="col-sm-10 col-md-8">
 
-                    {% block body %} {% endblock %}
+                        {% block body %} {% endblock %}
+
+                    </div>
+
+                    <div class="col-sm-1 col-md-2"></div>
                 </div>
+
 
             </div>
 
         </div>
+
     </div>
+    
+
 
 
 
@@ -118,6 +129,16 @@
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("menuDisplayed");
+            $("#sidebar-wrapper").toggleClass("menuDisplayed");
+            $("#menu-toggle").toggleClass("menuDisplayed");
+        });
+        $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
+            if ($("#nav.sticky.is-sticky").length > 0) {
+                $("#sidebar-wrapper").addClass("is-sticky");
+            }else{
+                $("#sidebar-wrapper").removeClass("is-sticky");
+            };
+
         });
     </script>
 
@@ -125,17 +146,22 @@
     <script>
         $(document).ready(function() {
             // Custom 
+        
             var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
                 var stickyHeight = sticky.outerHeight();
                 var stickyTop = stickyWrapper.offset().top;
                 if (scrollElement.scrollTop() >= stickyTop) {
                     stickyWrapper.height(stickyHeight);
                     sticky.addClass("is-sticky");
+                    
                 } else {
                     sticky.removeClass("is-sticky");
                     stickyWrapper.height('auto');
+                    
                 }
             };
+            
+
 
             // Find all data-toggle="sticky-onscroll" elements
             $('[data-toggle="sticky-onscroll"]').each(function() {
@@ -147,6 +173,7 @@
                 // Scroll & resize events
                 $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
                     stickyToggle(sticky, stickyWrapper, $(this));
+                                                        
                 });
 
                 // On page load

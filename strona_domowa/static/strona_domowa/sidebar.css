@@ -11,7 +11,12 @@
     -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
     transition: width 1s;
     transition-timing-function: ease;
-    text-overflow: clip;
+    
+    text-overflow: ellipsis;
+
+}
+
+#menu-toggle{
 
 }
 
@@ -21,9 +26,10 @@
     padding: 15px;
 }
 
-#wrapper.menuDisplayed #sidebar-wrapper {
+#sidebar-wrapper.menuDisplayed {
     width: 400px;
-    
+    z-index: 1000;
+        
 }
 
 #wrapper.menuDisplayed #page-content-wrapper {
@@ -31,9 +37,11 @@
     
 }
 
-#dodaj {
-    padding-top: 10px;
+#menu-toggle.menuDisplayed {
+    -webkit-transform: rotateY(180deg); /* Safari */
+    transform: rotateY(180deg);
 }
+
 
 
 /* Sidebar styling */
@@ -53,8 +61,6 @@
     border: 2px;
     border-radius: 10px;
     background: #16A0FF;
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-align: center;
 }
 
@@ -62,8 +68,6 @@
     display: block;
     text-decoration: none;
     color: #ddd;
-    text-overflow: ellipsis;
-    overflow: hidden;
     
 }
 
@@ -71,16 +75,3 @@
     background: #16A085;
 }
 
-.nav_przycisk{
-
-}
-
-
-#gpio {
-    border: 5px;
-    border-color: red;
-}
-
-.przyciski {
-    padding: 0;
-}
