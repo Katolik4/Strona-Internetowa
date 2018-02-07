@@ -32,7 +32,7 @@
   
   
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" id="nav" data-toggle="sticky-onscroll">
-
+    
     <a class="navbar-brand" href="#" id="menu-toggle">
         <span class="far fa-arrow-alt-circle-right fa-2x"></span>
     </a>
@@ -43,38 +43,37 @@
 
 
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
 
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'strona_domowa:projekty' %}">
+            <ul class="navbar-nav mt-2 mt-lg-0 mx-auto nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'strona_domowa:projekty' %}">
                         <span class="fas fa-sitemap"></span> Projekty
                     </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'strona_domowa:o_mnie' %}">
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'strona_domowa:o_mnie' %}">
                         <span class="far fa-user-circle"> </span> O mnie
                     </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <span class="fas fa-sign-in-alt"></span> Logowanie
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'strona_domowa:index' %}">
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="fas fa-sign-in-alt"></span> Logowanie
                     </a>
-                    <a class="dropdown-item" href="{% url 'esp:index' %}">
-                        <span class="fas fa-microchip"></span> ESP
-                    </a>
-                    <a class="dropdown-item" href="{% url 'admin:index' %}">
-                        <span class="fas fa-chess-rook"></span> ADMIN
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'strona_domowa:index' %}">
+                            <span class="fas fa-sign-in-alt"></span> Logowanie
+                        </a>
+                        <a class="dropdown-item" href="{% url 'esp:index' %}">
+                            <span class="fas fa-microchip"></span> ESP
+                        </a>
+                        <a class="dropdown-item" href="{% url 'admin:index' %}">
+                            <span class="fas fa-chess-rook"></span> ADMIN
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
 </nav>
   
 
