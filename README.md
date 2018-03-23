@@ -1,6 +1,6 @@
 # Kod strony internetowej Django
 
-#V1.0
+# V1.0
 Dodano:
 * Bootstrap 4.0.0 + Bootstrap.js 4.0.0
 * nowa aplikacja esp (http/esp)
