@@ -1,0 +1,2 @@
+ ~/Env/Strona/bin/gunicorn --bind unix:/tmp/Django.socket Django.wsgi:application
+- ręczne uruchomienie

@@ -1,5 +1,8 @@
 # Kod strony internetowej Django
 
+#KOD DO PRACY
+
+
 #V1.0
 Dodano:
 * Bootstrap 4.0.0 + Bootstrap.js 4.0.0
