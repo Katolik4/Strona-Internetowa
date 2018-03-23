@@ -31,8 +31,6 @@ ALLOWED_HOSTS = ['piotr-polakowski.pl', '192.168.0.12', 'localhost', '127.0.0.1'
 # Application definition
 
 INSTALLED_APPS = [
-    'nowa.apps.NowaConfig',
-    'esp.apps.EspConfig',
     'strona_domowa.apps.StronaDomowaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
